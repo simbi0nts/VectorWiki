@@ -1,0 +1,46 @@
+0.1) create virtual env.
+0.2) init django project (django >= 3.0, python >= 3.7)
+
+1) Firts, we need to decide on DB structure.
+
+My choice:
+
+BaseGeoObject(abstract):
+○ Name
+○ Population
+○ Area
+
+Continents (implements BaseGeoObject)
+○ Name
+○ Population
+○ Area
+
+Countries (implements BaseGeoObject)
+○ Continent (FK to Continents)
+○ Name
+○ Population
+○ Area
+
+Cities (implements BaseGeoObject)
+○ Country (FK to Countries)
+○ Name
+○ Population
+○ Area
+
+CountryInfo:
+○ Country (FK to Countries)
+○ Country Number of Hospitals
+○ Country Number of National Parks
+○ Country Number of Rivers
+○ Country Number of Schools
+
+CityInfo:
+○ City (FK to City)
+○ City Number of roads
+○ City Number of trees
+○ City Number of Shops
+○ City Number of Schools
+
+
+Note: I could've use custom model managers (for is_deleted logic, for example), but it seems there is no big need.
+
