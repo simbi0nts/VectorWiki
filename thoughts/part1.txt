@@ -1,5 +1,6 @@
 0.1) create virtual env.
-0.2) init django project (django >= 3.0, python >= 3.7)
+0.2) install postgresql
+0.3) init django project (django >= 3.0, python >= 3.7)
 
 1) Firts, we need to decide on DB structure.
 
@@ -44,3 +45,16 @@ CityInfo:
 
 Note: I could've use custom model managers (for is_deleted logic, for example), but it seems there is no big need.
 
+2) Now let's add some validation in our models (clean_population, clean_area)
+
+3) And pytests, obviously (pytest_geo_object)
+
+TODO:
+
+4) Some, data validation for geo_object_stat
+
+5) Some pytests for geo_object_stat
+
+6) Make "create, update, delete" interface for geo_object and geo_object_stat
+
+7) Make some tests for "create, update, delete" interface
