@@ -2,7 +2,7 @@
 0.2) install postgresql
 0.3) init django project (django >= 3.0, python >= 3.7)
 
-1) Firts, we need to decide on DB structure.
+1) First, we need to decide on DB structure.
 
 My choice:
 
@@ -43,18 +43,29 @@ CityInfo:
 ○ City Number of Schools
 
 
-Note: I could've use custom model managers (for is_deleted logic, for example), but it seems there is no big need.
+Note: I could've used custom model managers (for is_deleted logic, for example), but it seems there is no big need.
 
 2) Now let's add some validation in our models (clean_population, clean_area)
 
 3) And pytests, obviously (pytest_geo_object)
 
+4) Some, data validation for geo_object_stat, too
+I decided to put all clean methods inside model class just because i want to focus on other problems.
+And anyway, I made some distinct data validation class for BaseGeoObject.
+But, there is a possible refactoring opportunity (in the future).
+
+4.1) Also, I decided to check unique fields (clean_city, clean_country) on python side (partly for flexibility reasons, partly cuz I was lazy)
+
+5) And some pytests for geo_object_stat (pytest_geo_object_stat)
+
+6) Also some refactoring while I still can
+made code lil' bit cleaner and more clear (i hope)
+moved data fillers in tests to the distinct file (base_geo_object.py)
+
+That's it for now
+
 TODO:
 
-4) Some, data validation for geo_object_stat
+7) Make "create, update, delete" interface for geo_object and geo_object_stat
 
-5) Some pytests for geo_object_stat
-
-6) Make "create, update, delete" interface for geo_object and geo_object_stat
-
-7) Make some tests for "create, update, delete" interface
+8) Make some tests for "create, update, delete" interface
